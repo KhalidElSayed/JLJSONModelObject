@@ -1,0 +1,438 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5D858E0B171C8C4B0016EC03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D858E0A171C8C4B0016EC03 /* Foundation.framework */; };
+		5D858E10171C8C4B0016EC03 /* JLJSONModelObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D858E0F171C8C4B0016EC03 /* JLJSONModelObject.h */; };
+		5D858E12171C8C4B0016EC03 /* JLJSONModelObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D858E11171C8C4B0016EC03 /* JLJSONModelObject.m */; };
+		5D858E1A171C8C4B0016EC03 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D858E19171C8C4B0016EC03 /* SenTestingKit.framework */; };
+		5D858E1C171C8C4B0016EC03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D858E1B171C8C4B0016EC03 /* UIKit.framework */; };
+		5D858E1D171C8C4B0016EC03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D858E0A171C8C4B0016EC03 /* Foundation.framework */; };
+		5D858E20171C8C4B0016EC03 /* libJLJSONModelObject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D858E07171C8C4B0016EC03 /* libJLJSONModelObject.a */; };
+		5D858E26171C8C4B0016EC03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D858E24171C8C4B0016EC03 /* InfoPlist.strings */; };
+		5D858E29171C8C4B0016EC03 /* JLJSONModelObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D858E28171C8C4B0016EC03 /* JLJSONModelObjectTests.m */; };
+		5D858E34171C8CAF0016EC03 /* JLValueTransformations.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D858E33171C8CAF0016EC03 /* JLValueTransformations.m */; };
+		5D858E39171C90F20016EC03 /* NSArray+JLJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D858E36171C90F20016EC03 /* NSArray+JLJSONAdditions.m */; };
+		5D858E3A171C90F20016EC03 /* NSDictionary+JLJSONAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D858E38171C90F20016EC03 /* NSDictionary+JLJSONAdditions.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5D858E1E171C8C4B0016EC03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5D858DFF171C8C4B0016EC03 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D858E06171C8C4B0016EC03;
+			remoteInfo = JLJSONModelObject;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5D858E05171C8C4B0016EC03 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				5D858E10171C8C4B0016EC03 /* JLJSONModelObject.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5D858E07171C8C4B0016EC03 /* libJLJSONModelObject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libJLJSONModelObject.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D858E0A171C8C4B0016EC03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5D858E0E171C8C4B0016EC03 /* JLJSONModelObject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JLJSONModelObject-Prefix.pch"; sourceTree = "<group>"; };
+		5D858E0F171C8C4B0016EC03 /* JLJSONModelObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLJSONModelObject.h; sourceTree = "<group>"; };
+		5D858E11171C8C4B0016EC03 /* JLJSONModelObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLJSONModelObject.m; sourceTree = "<group>"; };
+		5D858E18171C8C4B0016EC03 /* JLJSONModelObjectTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JLJSONModelObjectTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D858E19171C8C4B0016EC03 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5D858E1B171C8C4B0016EC03 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		5D858E23171C8C4B0016EC03 /* JLJSONModelObjectTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JLJSONModelObjectTests-Info.plist"; sourceTree = "<group>"; };
+		5D858E25171C8C4B0016EC03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5D858E27171C8C4B0016EC03 /* JLJSONModelObjectTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLJSONModelObjectTests.h; sourceTree = "<group>"; };
+		5D858E28171C8C4B0016EC03 /* JLJSONModelObjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLJSONModelObjectTests.m; sourceTree = "<group>"; };
+		5D858E32171C8CAF0016EC03 /* JLValueTransformations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLValueTransformations.h; sourceTree = "<group>"; };
+		5D858E33171C8CAF0016EC03 /* JLValueTransformations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLValueTransformations.m; sourceTree = "<group>"; };
+		5D858E35171C90F20016EC03 /* NSArray+JLJSONAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+JLJSONAdditions.h"; sourceTree = "<group>"; };
+		5D858E36171C90F20016EC03 /* NSArray+JLJSONAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+JLJSONAdditions.m"; sourceTree = "<group>"; };
+		5D858E37171C90F20016EC03 /* NSDictionary+JLJSONAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+JLJSONAdditions.h"; sourceTree = "<group>"; };
+		5D858E38171C90F20016EC03 /* NSDictionary+JLJSONAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+JLJSONAdditions.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5D858E04171C8C4B0016EC03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D858E0B171C8C4B0016EC03 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D858E14171C8C4B0016EC03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D858E1A171C8C4B0016EC03 /* SenTestingKit.framework in Frameworks */,
+				5D858E1C171C8C4B0016EC03 /* UIKit.framework in Frameworks */,
+				5D858E1D171C8C4B0016EC03 /* Foundation.framework in Frameworks */,
+				5D858E20171C8C4B0016EC03 /* libJLJSONModelObject.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5D858DFE171C8C4B0016EC03 = {
+			isa = PBXGroup;
+			children = (
+				5D858E0C171C8C4B0016EC03 /* JLJSONModelObject */,
+				5D858E21171C8C4B0016EC03 /* JLJSONModelObjectTests */,
+				5D858E09171C8C4B0016EC03 /* Frameworks */,
+				5D858E08171C8C4B0016EC03 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5D858E08171C8C4B0016EC03 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5D858E07171C8C4B0016EC03 /* libJLJSONModelObject.a */,
+				5D858E18171C8C4B0016EC03 /* JLJSONModelObjectTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5D858E09171C8C4B0016EC03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D858E0A171C8C4B0016EC03 /* Foundation.framework */,
+				5D858E19171C8C4B0016EC03 /* SenTestingKit.framework */,
+				5D858E1B171C8C4B0016EC03 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D858E0C171C8C4B0016EC03 /* JLJSONModelObject */ = {
+			isa = PBXGroup;
+			children = (
+				5D858E0F171C8C4B0016EC03 /* JLJSONModelObject.h */,
+				5D858E11171C8C4B0016EC03 /* JLJSONModelObject.m */,
+				5D858E32171C8CAF0016EC03 /* JLValueTransformations.h */,
+				5D858E33171C8CAF0016EC03 /* JLValueTransformations.m */,
+				5D858E35171C90F20016EC03 /* NSArray+JLJSONAdditions.h */,
+				5D858E36171C90F20016EC03 /* NSArray+JLJSONAdditions.m */,
+				5D858E37171C90F20016EC03 /* NSDictionary+JLJSONAdditions.h */,
+				5D858E38171C90F20016EC03 /* NSDictionary+JLJSONAdditions.m */,
+				5D858E0D171C8C4B0016EC03 /* Supporting Files */,
+			);
+			path = JLJSONModelObject;
+			sourceTree = "<group>";
+		};
+		5D858E0D171C8C4B0016EC03 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5D858E0E171C8C4B0016EC03 /* JLJSONModelObject-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5D858E21171C8C4B0016EC03 /* JLJSONModelObjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				5D858E27171C8C4B0016EC03 /* JLJSONModelObjectTests.h */,
+				5D858E28171C8C4B0016EC03 /* JLJSONModelObjectTests.m */,
+				5D858E22171C8C4B0016EC03 /* Supporting Files */,
+			);
+			path = JLJSONModelObjectTests;
+			sourceTree = "<group>";
+		};
+		5D858E22171C8C4B0016EC03 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5D858E23171C8C4B0016EC03 /* JLJSONModelObjectTests-Info.plist */,
+				5D858E24171C8C4B0016EC03 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5D858E06171C8C4B0016EC03 /* JLJSONModelObject */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D858E2C171C8C4B0016EC03 /* Build configuration list for PBXNativeTarget "JLJSONModelObject" */;
+			buildPhases = (
+				5D858E03171C8C4B0016EC03 /* Sources */,
+				5D858E04171C8C4B0016EC03 /* Frameworks */,
+				5D858E05171C8C4B0016EC03 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JLJSONModelObject;
+			productName = JLJSONModelObject;
+			productReference = 5D858E07171C8C4B0016EC03 /* libJLJSONModelObject.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		5D858E17171C8C4B0016EC03 /* JLJSONModelObjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D858E2F171C8C4B0016EC03 /* Build configuration list for PBXNativeTarget "JLJSONModelObjectTests" */;
+			buildPhases = (
+				5D858E13171C8C4B0016EC03 /* Sources */,
+				5D858E14171C8C4B0016EC03 /* Frameworks */,
+				5D858E15171C8C4B0016EC03 /* Resources */,
+				5D858E16171C8C4B0016EC03 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5D858E1F171C8C4B0016EC03 /* PBXTargetDependency */,
+			);
+			name = JLJSONModelObjectTests;
+			productName = JLJSONModelObjectTests;
+			productReference = 5D858E18171C8C4B0016EC03 /* JLJSONModelObjectTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5D858DFF171C8C4B0016EC03 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Joel Levin";
+			};
+			buildConfigurationList = 5D858E02171C8C4B0016EC03 /* Build configuration list for PBXProject "JLJSONModelObject" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5D858DFE171C8C4B0016EC03;
+			productRefGroup = 5D858E08171C8C4B0016EC03 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5D858E06171C8C4B0016EC03 /* JLJSONModelObject */,
+				5D858E17171C8C4B0016EC03 /* JLJSONModelObjectTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5D858E15171C8C4B0016EC03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D858E26171C8C4B0016EC03 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5D858E16171C8C4B0016EC03 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5D858E03171C8C4B0016EC03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D858E12171C8C4B0016EC03 /* JLJSONModelObject.m in Sources */,
+				5D858E34171C8CAF0016EC03 /* JLValueTransformations.m in Sources */,
+				5D858E39171C90F20016EC03 /* NSArray+JLJSONAdditions.m in Sources */,
+				5D858E3A171C90F20016EC03 /* NSDictionary+JLJSONAdditions.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D858E13171C8C4B0016EC03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D858E29171C8C4B0016EC03 /* JLJSONModelObjectTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5D858E1F171C8C4B0016EC03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5D858E06171C8C4B0016EC03 /* JLJSONModelObject */;
+			targetProxy = 5D858E1E171C8C4B0016EC03 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5D858E24171C8C4B0016EC03 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5D858E25171C8C4B0016EC03 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5D858E2A171C8C4B0016EC03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5D858E2B171C8C4B0016EC03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5D858E2D171C8C4B0016EC03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/JLJSONModelObject.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JLJSONModelObject/JLJSONModelObject-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5D858E2E171C8C4B0016EC03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/JLJSONModelObject.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JLJSONModelObject/JLJSONModelObject-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5D858E30171C8C4B0016EC03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JLJSONModelObject/JLJSONModelObject-Prefix.pch";
+				INFOPLIST_FILE = "JLJSONModelObjectTests/JLJSONModelObjectTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5D858E31171C8C4B0016EC03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JLJSONModelObject/JLJSONModelObject-Prefix.pch";
+				INFOPLIST_FILE = "JLJSONModelObjectTests/JLJSONModelObjectTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5D858E02171C8C4B0016EC03 /* Build configuration list for PBXProject "JLJSONModelObject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D858E2A171C8C4B0016EC03 /* Debug */,
+				5D858E2B171C8C4B0016EC03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D858E2C171C8C4B0016EC03 /* Build configuration list for PBXNativeTarget "JLJSONModelObject" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D858E2D171C8C4B0016EC03 /* Debug */,
+				5D858E2E171C8C4B0016EC03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D858E2F171C8C4B0016EC03 /* Build configuration list for PBXNativeTarget "JLJSONModelObjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D858E30171C8C4B0016EC03 /* Debug */,
+				5D858E31171C8C4B0016EC03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5D858DFF171C8C4B0016EC03 /* Project object */;
+}
