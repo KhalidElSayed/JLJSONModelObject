@@ -209,7 +209,7 @@ static dispatch_once_t propertiesMapOnceToken;
 				} else if (property.isModelObject && [value isKindOfClass:[NSDictionary class]]) {
 					// property is an ADNResource, unpack it
 					value = [[property.objectType class] objectFromJSONDictionary:value];
-				} else {
+				} else if (![valueClass isSubclassOfClass:property.objectType]) {
 					// see if there's an existing transformation that we can run
 					SEL transformSelector = NSSelectorFromString([NSString stringWithFormat:@"%@From%@:", property.objectType, valueClass]);
 					if ([[JLValueTransformations transformations] respondsToSelector:transformSelector]) {

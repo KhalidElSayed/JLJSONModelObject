@@ -52,6 +52,15 @@
 }
 
 
+- (NSDictionary *)NSDictionaryFromNSString:(NSString *)string {
+	NSDictionary *dictionary = nil;
+	if ([string hasPrefix:@"{"]) {
+		dictionary = [NSJSONSerialization JSONObjectWithData:[string dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+	}
+	return dictionary;
+}
+
+
 - (id)JSONObjectFromNSURL:(NSURL *)URL {
 	return [URL absoluteString];
 }
