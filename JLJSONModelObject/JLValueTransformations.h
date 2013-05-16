@@ -22,10 +22,12 @@
 - (NSURL *)NSURLFromNSString:(NSString *)string;
 - (NSDate *)NSDateFromNSString:(NSString *)string;
 - (NSDictionary *)NSDictionaryFromNSString:(NSString *)string;
+- (NSSet *)NSSetFromNSArray:(NSArray *)array;
 
 // reverse transformations
 - (id)JSONObjectFromNSURL:(NSURL *)URL;
 - (id)JSONObjectFromNSDate:(NSDate *)date;
+- (id)JSONObjectFromNSSet:(NSSet *)set;
 
 // misc
 - (NSDateFormatter *)dateFormatter;

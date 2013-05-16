@@ -61,6 +61,11 @@
 }
 
 
+- (NSSet *)NSSetFromNSArray:(NSArray *)array {
+	return [NSSet setWithArray:array];
+}
+
+
 - (id)JSONObjectFromNSURL:(NSURL *)URL {
 	return [URL absoluteString];
 }
@@ -68,6 +73,11 @@
 
 - (id)JSONObjectFromNSDate:(NSDate *)date {
 	return [[self dateFormatter] stringFromDate:date];
+}
+
+
+- (id)JSONObjectFromNSSet:(NSSet *)set {
+	return [set allObjects];
 }
 
 
