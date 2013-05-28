@@ -28,6 +28,7 @@ static dispatch_once_t propertiesMapOnceToken;
 @property (strong) NSString *JSONKey;
 @property (assign) Class objectType;
 @property (assign) BOOL isPrimitive;
+@property (assign) BOOL isBoolean;
 @property (assign) BOOL isModelObject;
 @property (assign) BOOL isCollection;
 
@@ -58,10 +59,10 @@ static dispatch_once_t propertiesMapOnceToken;
 			if (self.objectType == [NSArray class]) {
 				SEL collectionObjectClass = NSSelectorFromString([NSString stringWithFormat:@"%@CollectionObjectClass", self.name]);
 				if ([parentClass respondsToSelector:collectionObjectClass]) {
-					#pragma clang diagnostic push
-					#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 					self.objectType = [parentClass performSelector:collectionObjectClass];
-					#pragma clang diagnostic pop
+#pragma clang diagnostic pop
 					
 					// this is only marked as a collection if its a collection of model objects
 					self.isCollection = [self.objectType isSubclassOfClass:[JLJSONModelObject class]];
@@ -70,6 +71,7 @@ static dispatch_once_t propertiesMapOnceToken;
 		} else {
 			// primitive
 			self.isPrimitive = YES;
+			self.isBoolean = [attributesString characterAtIndex:1] == 'c';
 		}
 	}
 	return self;
@@ -175,7 +177,7 @@ static dispatch_once_t propertiesMapOnceToken;
 		if (value == [NSNull null]) {
 			value = nil;
 		}
-
+		
 		Class valueClass = [value classForCoder] ?: [value class];
 		NSString *valueClassString = NSStringFromClass(valueClass);
 		
@@ -209,14 +211,14 @@ static dispatch_once_t propertiesMapOnceToken;
 				} else if (property.isModelObject && [value isKindOfClass:[NSDictionary class]]) {
 					// property is an ADNResource, unpack it
 					value = [[property.objectType class] objectFromJSONDictionary:value];
-				} else if (![valueClass isSubclassOfClass:property.objectType]) {
+				} else {
 					// see if there's an existing transformation that we can run
 					SEL transformSelector = NSSelectorFromString([NSString stringWithFormat:@"%@From%@:", property.objectType, valueClass]);
 					if ([[JLValueTransformations transformations] respondsToSelector:transformSelector]) {
-						#pragma clang diagnostic push
-						#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 						value = [[JLValueTransformations transformations] performSelector:transformSelector withObject:value];
-						#pragma clang diagnostic pop
+#pragma clang diagnostic pop
 					} else {
 						NSLog(@"could not find a method to convert %@ of class %@ to class %@ (%@)", value, valueClass, property.objectType, NSStringFromSelector(transformSelector));
 					}
@@ -225,6 +227,10 @@ static dispatch_once_t propertiesMapOnceToken;
 			
 			if (!value && property.isPrimitive) {
 				continue;
+			}
+			
+			if (property.isBoolean && [value isKindOfClass:[NSString class]]) {
+				value = @([(NSString *)value boolValue]);
 			}
 			
 			[self setValue:value forKey:localKey];
@@ -279,10 +285,10 @@ static dispatch_once_t propertiesMapOnceToken;
 			// otherwise, see if it needs to be transformed in order to be JSON compatible
 			SEL transformSelector = NSSelectorFromString([NSString stringWithFormat:@"JSONObjectFrom%@:", NSStringFromClass([value class])]);
 			if ([[JLValueTransformations transformations] respondsToSelector:transformSelector]) {
-				#pragma clang diagnostic push
-				#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 				value = [[JLValueTransformations transformations] performSelector:transformSelector withObject:value];
-				#pragma clang diagnostic pop
+#pragma clang diagnostic pop
 			}
 		}
 		
@@ -302,7 +308,7 @@ static dispatch_once_t propertiesMapOnceToken;
 	if (propertiesMap[NSStringFromClass(superclass)]) {
 		[properties addEntriesFromDictionary:[self resourcePropertiesForClass:superclass]];
 	}
-
+	
 	[properties addEntriesFromDictionary:propertiesMap[NSStringFromClass(class)]];
 	
 	return properties;
