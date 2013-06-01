@@ -204,7 +204,7 @@ static dispatch_once_t propertiesMapOnceToken;
 		}
 		
 		if (property) {
-			if (valueClass != property.objectType && !property.isPrimitive) {
+			if (valueClass != property.objectType && !property.isPrimitive && value) {
 				if (property.isCollection && [value isKindOfClass:[NSArray class]]) {
 					// property is a collection, so unpack the collection
 					value = [property.objectType objectsFromJSONDictionaries:value];
