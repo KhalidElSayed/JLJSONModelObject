@@ -172,7 +172,7 @@ static dispatch_once_t propertiesMapOnceToken;
 		NSString *localKey = [class JSONToLocalKeyMapping][JSONKey] ?: JSONKey;
 		
 		// next, pull out the value and class of the value
-		id value = JSONDictionary[JSONKey];
+		id value = [JSONDictionary valueForKeyPath:[self dictionaryKeyPathForJSONKey:JSONKey]];
 		// treat omitted value the same as explicit null
 		if (value == [NSNull null]) {
 			value = nil;
@@ -323,6 +323,11 @@ static dispatch_once_t propertiesMapOnceToken;
 			block(property);
 		}
 	}
+}
+
+
+- (NSString *)dictionaryKeyPathForJSONKey:(NSString *)JSONKey {
+	return JSONKey;
 }
 
 

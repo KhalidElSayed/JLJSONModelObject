@@ -28,4 +28,6 @@
 - (void)objectDidUpdate;
 - (NSDictionary *)JSONDictionary;
 
+- (NSString *)dictionaryKeyPathForJSONKey:(NSString *)JSONKey;
+
 @end
