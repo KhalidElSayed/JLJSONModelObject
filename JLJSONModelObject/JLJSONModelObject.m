@@ -220,7 +220,7 @@ static dispatch_once_t propertiesMapOnceToken;
 						value = [[JLValueTransformations transformations] performSelector:transformSelector withObject:value];
 #pragma clang diagnostic pop
 					} else {
-						NSLog(@"could not find a method to convert %@ of class %@ to class %@ (%@)", value, valueClass, property.objectType, NSStringFromSelector(transformSelector));
+						NSLog(@"could not find a method to convert %@ of class %@ to class %@ (%@) for %@ -> %@", value, valueClass, property.objectType, NSStringFromSelector(transformSelector), JSONKey, property.name);
 					}
 				}
 			}
