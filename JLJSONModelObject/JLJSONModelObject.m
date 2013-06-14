@@ -22,7 +22,7 @@ static dispatch_once_t propertiesMapOnceToken;
 
 
 // internal class representing a single property for a class
-@interface ANKResourceProperty : NSObject
+@interface JLJSONResourceProperty : NSObject
 
 @property (strong) NSString *name;
 @property (strong) NSString *JSONKey;
@@ -37,7 +37,7 @@ static dispatch_once_t propertiesMapOnceToken;
 @end
 
 
-@implementation ANKResourceProperty
+@implementation JLJSONResourceProperty
 
 - (id)initWithName:(NSString *)name attributesString:(NSString *)attributesString forParentClass:(Class)parentClass {
 	if ((self = [super init])) {
@@ -91,7 +91,7 @@ static dispatch_once_t propertiesMapOnceToken;
 - (void)updateObjectFromJSONDictionary:(NSDictionary *)JSONDictionary forClass:(Class)class;
 - (NSDictionary *)JSONDictionaryForClass:(Class)class;
 - (NSDictionary *)resourcePropertiesForClass:(Class)class;
-- (void)iteratePropertiesWithBlock:(void (^)(ANKResourceProperty *property))block;
+- (void)iteratePropertiesWithBlock:(void (^)(JLJSONResourceProperty *property))block;
 
 @end
 
@@ -112,7 +112,7 @@ static dispatch_once_t propertiesMapOnceToken;
 	objc_property_t *propertiesList = class_copyPropertyList([self class], &propertyCount);
 	for (unsigned int i = 0; i < propertyCount; i++) {
 		objc_property_t property = propertiesList[i];
-		ANKResourceProperty *propertyObject = [[ANKResourceProperty alloc] initWithName:[NSString stringWithUTF8String:property_getName(property)] attributesString:[NSString stringWithUTF8String:property_getAttributes(property)] forParentClass:[self class]];
+		JLJSONResourceProperty *propertyObject = [[JLJSONResourceProperty alloc] initWithName:[NSString stringWithUTF8String:property_getName(property)] attributesString:[NSString stringWithUTF8String:property_getAttributes(property)] forParentClass:[self class]];
 		propertyObject.JSONKey = inverseKeyMapping[propertyObject.name] ?: propertyObject.name;
 		propertiesForClass[propertyObject.name] = propertyObject;
 	}
@@ -127,7 +127,7 @@ static dispatch_once_t propertiesMapOnceToken;
 
 
 + (NSString *)JSONKeyForLocalKey:(NSString *)localKey {
-	return ((ANKResourceProperty *)propertiesMap[NSStringFromClass([self class])][localKey]).JSONKey ?: localKey;
+	return ((JLJSONResourceProperty *)propertiesMap[NSStringFromClass([self class])][localKey]).JSONKey ?: localKey;
 }
 
 
@@ -191,7 +191,7 @@ static dispatch_once_t propertiesMapOnceToken;
 		}
 		
 		// look up info about the local property
-		ANKResourceProperty *property = propertiesMap[NSStringFromClass(class)][localKey];
+		JLJSONResourceProperty *property = propertiesMap[NSStringFromClass(class)][localKey];
 		
 		// if we couldn't find the property, walk up until we either do or run out of superclasses
 		Class superclass = class_getSuperclass(class);
@@ -266,7 +266,7 @@ static dispatch_once_t propertiesMapOnceToken;
 			continue;
 		}
 		
-		ANKResourceProperty *property = propertiesForClass[localKey];
+		JLJSONResourceProperty *property = propertiesForClass[localKey];
 		
 		// figure out the JSON key
 		NSString *remoteKey = property.JSONKey;
@@ -315,10 +315,10 @@ static dispatch_once_t propertiesMapOnceToken;
 }
 
 
-- (void)iteratePropertiesWithBlock:(void (^)(ANKResourceProperty *property))block {
+- (void)iteratePropertiesWithBlock:(void (^)(JLJSONResourceProperty *property))block {
 	NSDictionary *properties = [self resourcePropertiesForClass:[self class]];
 	for (NSString *propertyName in properties) {
-		ANKResourceProperty *property = properties[propertyName];
+		JLJSONResourceProperty *property = properties[propertyName];
 		if (block) {
 			block(property);
 		}
@@ -337,7 +337,7 @@ static dispatch_once_t propertiesMapOnceToken;
 - (id)copyWithZone:(NSZone *)zone {
 	JLJSONModelObject *copy = [[[self class] alloc] init];
 	
-	[self iteratePropertiesWithBlock:^(ANKResourceProperty *property) {
+	[self iteratePropertiesWithBlock:^(JLJSONResourceProperty *property) {
 		id value = [self valueForKey:property.name];
 		if (value) {
 			[copy setValue:value forKey:property.name];
@@ -353,7 +353,7 @@ static dispatch_once_t propertiesMapOnceToken;
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
 	if ((self = [super init])) {
-		[self iteratePropertiesWithBlock:^(ANKResourceProperty *property) {
+		[self iteratePropertiesWithBlock:^(JLJSONResourceProperty *property) {
 			id decodedValue = [aDecoder decodeObjectForKey:property.name];
 			[self setValue:decodedValue forKey:property.name];
 		}];
@@ -363,7 +363,7 @@ static dispatch_once_t propertiesMapOnceToken;
 
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
-	[self iteratePropertiesWithBlock:^(ANKResourceProperty *property) {
+	[self iteratePropertiesWithBlock:^(JLJSONResourceProperty *property) {
 		id value = [self valueForKey:property.name];
 		if (value) {
 			[aCoder encodeObject:value forKey:property.name];
